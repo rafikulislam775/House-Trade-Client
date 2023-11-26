@@ -25,9 +25,9 @@ const SignUp = () => {
       //3. Save username & profile photo
       await updateUserProfile(name, imageData?.data?.display_url);
       //now to navigate the user
-      
+
       navigate(location?.state ? location?.state : "/");
-      swal("Good job!", "now you are login successfully!", "success");
+      swal("Thanks!", "you are successfully created accounts !", "success");
       console.log(result);
     } catch (err) {
       console.log(err);

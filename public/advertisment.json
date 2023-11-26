@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "title": "City Center Penthouse",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/2.png",
+    "address": "High Street, Metropolis",
+    "status": "verified",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "area_sqft": 1800,
+      "price": 700000,
+      "description": "Experience luxury living in this spacious penthouse situated in the heart of Metropolis. This stunning residence features three bedrooms, two and a half bathrooms, and breathtaking city skyline views. With 1800 square feet of living space, this penthouse is perfect for those seeking the epitome of urban sophistication."
+    }
+  },
+  {
+    "id": 2,
+    "title": "Seaside Villa",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/3.png",
+    "address": "Ocean Drive, Coastal Haven",
+    "status": "verified",
+    "details": {
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area_sqft": 2500,
+      "price": 1200000,
+      "description": "Discover the epitome of coastal living in this elegant seaside villa. With four bedrooms, three bathrooms, and a spacious 2500 square feet, this residence offers a luxurious escape. Enjoy direct access to the beach and panoramic views of the ocean. Embrace the tranquility of Coastal Haven in this exquisite villa."
+    }
+  },
+  {
+    "id": 3,
+    "title": "Mountain Retreat",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/4.png",
+    "address": "Tranquil Trail, Mountain Paradise",
+    "status": "not verified",
+    "details": {
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area_sqft": 1500,
+      "price": 500000,
+      "description": "Escape to this cozy mountain retreat nestled in the heart of Mountain Paradise. With two bedrooms, two bathrooms, and 1500 square feet of living space, this residence provides a serene and secluded environment. Enjoy the natural beauty and tranquility of the surrounding mountains."
+    }
+  },
+  {
+    "id": 4,
+    "title": "Lakefront Cabin",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/5.png",
+    "address": "Lakeside Lane, Tranquil Waters",
+    "status": "verified",
+    "details": {
+      "bedrooms": 2,
+      "bathrooms": 1.5,
+      "area_sqft": 1200,
+      "price": 300000,
+      "description": "Unwind in this quaint lakefront cabin located on Lakeside Lane, offering stunning views of Tranquil Waters. With two bedrooms, one and a half bathrooms, and 1200 square feet of charm, this cabin provides a peaceful retreat. Enjoy the serenity of lakeside living."
+    }
+  },
+  {
+    "id": 5,
+    "title": "Urban Loft",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/6.png",
+    "address": "Loft Avenue, Cityscape",
+    "status": "not verified",
+    "details": {
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area_sqft": 800,
+      "price": 250000,
+      "description": "Indulge in the chic urban lifestyle in this one-bedroom loft located on Loft Avenue in the heart of Cityscape. With 800 square feet of modern living space, this residence boasts exposed brick walls and high ceilings, offering a perfect blend of style and comfort."
+    }
+  },
+  {
+    "id": 6,
+    "title": "Garden Oasis",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/8.png",
+    "address": "Greenery Lane, Serene Gardens",
+    "status": "verified",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area_sqft": 2000,
+      "price": 600000,
+      "description": "Immerse yourself in nature in this tranquil residence on Greenery Lane in the heart of Serene Gardens. With three bedrooms, two bathrooms, and 2000 square feet of living space, this home features a lush garden oasis, providing a serene and peaceful environment."
+    }
+  },
+  {
+    "id": 7,
+    "title": "Suburban Family House",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/9.png",
+    "address": "Family Court, Suburbia",
+    "status": "not verified",
+    "details": {
+      "bedrooms": 4,
+      "bathrooms": 3.5,
+      "area_sqft": 2200,
+      "price": 450000,
+      "description": "Experience suburban living at its finest in this spacious family house on Family Court in Suburbia. With four bedrooms, three and a half bathrooms, and 2200 square feet of living space, this residence is perfect for a growing family. Enjoy the comfort and convenience of suburban life."
+    }
+  },
+  {
+    "id": 8,
+    "title": "Sky High Condo",
+    "img": "https://zwin.io/html/realdeal/assets/img/feature/1.png",
+    "address": "Cloudway, Skyline Heights",
+    "status": "verified",
+    "details": {
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area_sqft": 1200,
+      "price": 800000,
+      "description": "Elevate your lifestyle in this contemporary condo on Cloudway in Skyline Heights. With two bedrooms, two bathrooms, and 1200 square feet of living space, this residence offers panoramic views of the city skyline. Embrace the modern urban experience in this sky-high condo."
+    }
+  }
+]
