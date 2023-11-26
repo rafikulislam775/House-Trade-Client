@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import swal from "sweetalert";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -75,6 +75,17 @@ const Navbar = () => {
           }
         >
           Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/userDashboard/wishlist"
+          className={({ isActive }) =>
+            isActive ? "bg-orange-500  text-white" : ""
+          }
+        >
+          <FaCartShopping className=""></FaCartShopping>
+          <span className="badge bg-orange-300 ">0</span>
         </NavLink>
       </li>
     </>

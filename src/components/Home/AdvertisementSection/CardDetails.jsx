@@ -1,9 +1,33 @@
 import { useLoaderData } from "react-router-dom";
 import { ImLocation } from "react-icons/im";
+import useAuth from "../../../hooks/useAuth";
+import axiosPublic from "../../../api/axiosInstance";
+import Swal from "sweetalert2";
 const CardDetails = () => {
   const data = useLoaderData();
-  const { _id, img, title, address, details, status, views } = data;
-  console.log(data);
+  const { _id, img, title, address, details, price, status, views } = data;
+  const { user } = useAuth();
+  console.log(user);
+  const handleAddWishlist = () => {
+    if (user && user?.email) {
+      const item = {
+        email: user.email,
+        price,
+        img,
+        title,
+      };
+      axiosPublic.post("/wishlist", item).then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Good job!",
+            text: `${title} added successfully`,
+            icon: "success",
+          });
+        }
+      });
+    }
+  };
   return (
     <section className="p-4 h-screen lg:p-8 dark:bg-gray-800 dark:text-gray-100">
       <div className="container mx-auto space-y-12">
@@ -36,7 +60,11 @@ const CardDetails = () => {
             </span>
             <p className="my-6 dark:text-gray-400">{details.description}</p>
             <div>
-              <button type="button" className=" btn  mr-5">
+              <button
+                onClick={handleAddWishlist}
+                type="button"
+                className=" btn  mr-5"
+              >
                 Add To Wishlist
               </button>
               <button type="button" className=" btn ">
