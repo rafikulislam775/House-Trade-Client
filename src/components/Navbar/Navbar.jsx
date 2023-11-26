@@ -65,6 +65,20 @@ const Navbar = () => {
       </li>
     </>
   );
+  const privateMenu = (
+    <>
+      <li>
+        <NavLink
+          to="/userDashboard"
+          className={({ isActive }) =>
+            isActive ? "bg-orange-500 text-white" : ""
+          }
+        >
+          Dashboard
+        </NavLink>
+      </li>
+    </>
+  );
   return (
     <div
       style={{
@@ -99,6 +113,7 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {menu}
+            {user ? privateMenu : ""}
           </ul>
         </div>
         <div>
@@ -106,7 +121,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{menu}</ul>
+        <ul className="menu menu-horizontal px-1">
+          {menu} {user && privateMenu}
+        </ul>
       </div>
       <div className="navbar-end">
         {user ? (

@@ -5,6 +5,8 @@ import Login from "../components/Login/Login";
 import SignUp from "../components/Register/SignUp";
 import CardDetails from "../components/Home/AdvertisementSection/CardDetails";
 import { allProperties, property } from "../api/properties";
+import UserDashboard from "../UserDashboard/UserDashboard";
+import Wishlist from "../UserDashboard/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
         path: "properties/:id",
         element: <CardDetails></CardDetails>,
         loader: ({ params }) => property(params.id),
+      },
+    ],
+  },
+  {
+    path: "userDashboard",
+    element: <UserDashboard></UserDashboard>,
+    children: [
+      {
+        path: "wishlist",
+        element: <Wishlist></Wishlist>,
       },
     ],
   },

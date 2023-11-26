@@ -12,7 +12,7 @@ const AdvertCard = ({ item }) => {
   return (
     <ReactParallaxTilt tiltEnable={false} scale={1.1} transitionSpeed={1500}>
       <div data-aos="zoom-in-down">
-        <article className="flex flex-col dark:bg-gray-900">
+        <article className="flex flex-col dark:bg-gray-900 hover:border-orange-500 hover:border -orange-500">
           <div>
             <img
               alt=""
