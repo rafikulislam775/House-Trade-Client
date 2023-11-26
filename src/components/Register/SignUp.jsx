@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
 import { imageUpload } from "../../api/utils";
+import { ImSpinner9 } from "react-icons/im";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, signInWithGoogle, loading } =
@@ -16,16 +17,17 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     const image = form.image.files[0];
-
     try {
       //1. Upload Image
       const imageData = await imageUpload(image);
-
       //2. User Registration
       const result = await createUser(email, password);
-
       //3. Save username & profile photo
       await updateUserProfile(name, imageData?.data?.display_url);
+      //now to navigate the user
+      
+      navigate(location?.state ? location?.state : "/");
+      swal("Good job!", "now you are login successfully!", "success");
       console.log(result);
     } catch (err) {
       console.log(err);
@@ -53,6 +55,7 @@ const SignUp = () => {
           <p className="text-sm text-gray-400">Welcome to StayVista</p>
         </div>
         <form
+          onSubmit={handleSubmit}
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -120,7 +123,11 @@ const SignUp = () => {
               type="submit"
               className="bg-orange-500 w-full rounded-md py-3 text-white"
             >
-              Continue
+              {loading ? (
+                <ImSpinner9 className="animate-spin m-auto" />
+              ) : (
+                "Sign Up"
+              )}
             </button>
           </div>
         </form>
@@ -131,7 +138,10 @@ const SignUp = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
-        <div className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
+        <div
+          onClick={handleGoogleSignIn}
+          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+        >
           <FcGoogle size={32} />
 
           <p>Continue with Google</p>

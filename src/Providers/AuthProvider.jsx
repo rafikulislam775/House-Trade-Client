@@ -41,11 +41,6 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  const logOut = () => {
-    setLoading(true);
-    return signOut(auth);
-  };
-
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
@@ -64,6 +59,10 @@ const AuthProvider = ({ children }) => {
       return unsubscribe();
     };
   }, []);
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
   const authInfo = {
     user,

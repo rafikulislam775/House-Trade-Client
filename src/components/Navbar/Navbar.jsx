@@ -1,8 +1,22 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
 import { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import swal from "sweetalert";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  // const handleLogout = async () => {
+  //   await logOut()
+  //     .then((res) => {
+  //       swal("Sign-out successful!", "", "success");
+  //       console.log("Sign-out successful.", res.user);
+  //     })
+  //     .catch((err) => {
+  //       swal("Oops", `${err} ! please try again`, "error");
+  //       console.error("Sign-out failed.", err);
+  //     });
+  // };
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
   const [fontColor, setFontColor] = useState("");
@@ -17,7 +31,6 @@ const Navbar = () => {
       window.removeEventListener("scroll", listenScrollEvent);
     };
   }, []);
-  const user = false;
   const menu = (
     <>
       <li>
@@ -100,21 +113,21 @@ const Navbar = () => {
           <div className="group relative">
             <div className="avatar">
               <div className="w-10 rounded-full">
-                {/* <img src={user?.photoURL} alt="User Avatar" /> */}
+                <img src={user?.photoURL} alt="User Avatar" />
               </div>
             </div>
 
             <div className="invisible group-hover:visible  absolute bg-white text-black p-2  rounded shadow-md w-40  -left-28">
               <div className="overflow-hidden whitespace-nowrap overflow-ellipsis">
-                {/* {user?.displayName} */}
+                {user?.displayName}
               </div>
               <div className="overflow-hidden overflow-ellipsis   whitespace-nowrap ">
-                {/* {user?.email} */}
+                {user?.email}
               </div>
 
               <button
-                //   onClick={handleLogout}
-                className="btn btn-sm bg-red-950 text-white"
+                onClick={logOut}
+                className="btn btn-sm bg-orange-500 text-white"
               >
                 LogOut
               </button>
