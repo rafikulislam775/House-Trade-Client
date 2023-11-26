@@ -4,7 +4,7 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import SignUp from "../components/Register/SignUp";
 import CardDetails from "../components/Home/AdvertisementSection/CardDetails";
-import { allProperties } from "../api/properties";
+import { allProperties, property } from "../api/properties";
 
 const router = createBrowserRouter([
   {
@@ -25,9 +25,9 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-        path: "cardDetail/:id",
+        path: "properties/:id",
         element: <CardDetails></CardDetails>,
-        loader: ({ params }) => fetch(`./advertisment.json/${params.id}`),
+        loader: ({ params }) => property(params.id),
       },
     ],
   },

@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 AOS.init();
 const AdvertCard = ({ item }) => {
-  const { id, img, title, address, details, status, views } = item;
+  const { _id, img, title, address, details, status, views } = item;
 
   return (
     <ReactParallaxTilt tiltEnable={false} scale={1.1} transitionSpeed={1500}>
@@ -45,7 +45,7 @@ const AdvertCard = ({ item }) => {
             </div>
             <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
               <span>{views}K views</span>
-              <NavLink to={`cardDetail/${id}`}>
+              <NavLink to={`properties/${_id}`}>
                 {" "}
                 <button className="btn btn-outline btn-xs btn-error">
                   Details
