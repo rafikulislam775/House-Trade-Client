@@ -2,6 +2,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import banner1 from "../../../public/home Banner.jpg";
+import BannerHero from "./BannerHero";
 const Banner = () => {
   const [sliderRef] = useKeenSlider(
     {
@@ -42,8 +43,9 @@ const Banner = () => {
   return (
     <>
       <div ref={sliderRef} className="keen-slider">
-        <div className="keen-slider__slide number-slide1">
-          <img src={banner1} alt="" />
+        <div className="keen-slider__slide  number-slide1">
+          {/* <img className="" src={banner1} alt="" /> */}
+          {/* <BannerHero img={banner1}></BannerHero> */}
         </div>
         <div className="keen-slider__slide number-slide2">2</div>
         <div className="keen-slider__slide number-slide3">3</div>
