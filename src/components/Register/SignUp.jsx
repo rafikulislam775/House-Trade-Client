@@ -1,7 +1,50 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import useAuth from "../../hooks/useAuth";
+import swal from "sweetalert";
+import { imageUpload } from "../../api/utils";
 
 const SignUp = () => {
+  const { createUser, updateUserProfile, signInWithGoogle, loading } =
+    useAuth();
+  const navigate = useNavigate();
+  // form submit handler
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const image = form.image.files[0];
+
+    try {
+      //1. Upload Image
+      const imageData = await imageUpload(image);
+
+      //2. User Registration
+      const result = await createUser(email, password);
+
+      //3. Save username & profile photo
+      await updateUserProfile(name, imageData?.data?.display_url);
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+      swal("Oops!", "Something went wrong!", "error");
+    }
+  };
+  //handle google login
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then(() => {
+        //now to navigate the user
+        navigate(location?.state ? location?.state : "/");
+        swal("Good job!", "now you are login successfully!", "success");
+      })
+      .catch(() =>
+        swal("Oops", "Something went wrong ! please try again", "error")
+      );
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">

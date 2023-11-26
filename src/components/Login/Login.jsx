@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
+import { ImSpinner9 } from "react-icons/im";
 
 const Login = () => {
   const { signIn, signInWithGoogle, loading } = useAuth();
@@ -24,6 +25,7 @@ const Login = () => {
         swal("Oops", "Something went wrong ! please try again", "error")
       );
   };
+  //handle google login
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then(() => {
@@ -88,7 +90,11 @@ const Login = () => {
               type="submit"
               className="bg-orange-500 w-full rounded-md py-3 text-white"
             >
-              Continue
+              {loading ? (
+                <ImSpinner9 className="animate-spin m-auto" />
+              ) : (
+                "Login"
+              )}
             </button>
           </div>
         </form>
