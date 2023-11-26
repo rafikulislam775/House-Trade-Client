@@ -1,15 +1,22 @@
-import { useState } from "react";
-import { useEffect } from "react";
+// import { useState } from "react";
+// import { useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 import AdvertCard from "./advertCard";
+// import axiosPublic from "../../../api/axiosInstance";
+
 
 const Adviertisement = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch("./advertisment.json")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-  console.log(data);
+    const data= useLoaderData()
+//   const [data, setData] = useState(null);
+  //   useEffect(() => {
+  //     fetch("./advertisment.json")
+  //       .then((res) => res.json())
+  //       .then((data) => setData(data));
+  //   }, []);
+  //   console.log(data);
+  //data get from database by axios
+//   axiosPublic.get("/properties").then((res) => setData(res.data));
+ 
   return (
     <div>
       <section className="py-6 sm:py-12 dark:bg-gray-800 dark:text-gray-100">

@@ -3,6 +3,7 @@ import { ImLocation } from "react-icons/im";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ReactParallaxTilt from "react-parallax-tilt";
+import { NavLink } from "react-router-dom";
 
 AOS.init();
 const AdvertCard = ({ item }) => {
@@ -44,9 +45,12 @@ const AdvertCard = ({ item }) => {
             </div>
             <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
               <span>{views}K views</span>
-              <button className="btn btn-outline btn-xs btn-error">
-                Details
-              </button>
+              <NavLink to={`cardDetail/${id}`}>
+                {" "}
+                <button className="btn btn-outline btn-xs btn-error">
+                  Details
+                </button>
+              </NavLink>
             </div>
           </div>
         </article>
