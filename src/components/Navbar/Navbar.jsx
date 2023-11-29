@@ -4,14 +4,11 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import useTanst from "../../api/useTanstack";
-import useWistlist from "../../hooks/useWishlist";
+
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { wishlist } = useTanst();
-  // console.log(wishlist);
-  // const { wishlist } = useWistlist();
-  console.log(wishlist);
 
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
