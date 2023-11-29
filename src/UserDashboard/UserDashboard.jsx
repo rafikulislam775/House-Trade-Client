@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import ShoppingCart from "./ShoppingCart";
 const UserDashboard = () => {
+
   const { user } = useAuth();
+
   console.log(user);
+  
   return (
     <div className="flex bg-gray-900 ">
       <div className="h-screen p-3 space-y-2  w-64 dark:bg-gray-900 dark:text-gray-100">
         <div className="flex items-center p-2 space-x-4">
           <img
             // src="https://source.unsplash.com/100x100/?portrait"
-            src={user.photoURL}
+            src={user && user?.photoURL}
             alt=""
             className="w-12 h-12 rounded-full dark:bg-gray-500"
           />
@@ -36,7 +39,7 @@ const UserDashboard = () => {
                     <div className="max-w-md  sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
                       <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                         <img
-                          src={user.photoURL}
+                          src={user && user?.photoURL}
                           alt=""
                           className="object-cover object-center w-full h-full rounded dark:bg-gray-500"
                         />
@@ -61,7 +64,7 @@ const UserDashboard = () => {
                               ></path>
                             </svg>
                             <span className="dark:text-gray-400">
-                              {user.email}
+                              {user?.email}
                             </span>
                           </span>
                           <span className="flex items-center space-x-2">
@@ -213,7 +216,9 @@ const UserDashboard = () => {
         </div>
       </div>
       <div className=" flex-1 ">
-        <ShoppingCart></ShoppingCart>
+        <ShoppingCart
+        
+        ></ShoppingCart>
       </div>
     </div>
   );
