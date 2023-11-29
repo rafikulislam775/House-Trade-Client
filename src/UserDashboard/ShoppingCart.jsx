@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const ShoppingCart = () => {
   const { wishlist, isLoading, refetch } = useTanst();
   const axios = axiosPublic;
-  const handledelate = (id) => {
+  const handleDelate = (id) => {
     console.log(id);
     Swal.fire({
       title: "Are you sure?",
@@ -62,14 +62,12 @@ const ShoppingCart = () => {
                       </div>
                     </td>
                     <td className="">
-                      <span className="badge badge-ghost badge-sm">
-                        Desktop Support Technician
-                      </span>
+                      <span className="badge ">$ {item.price}</span>
                     </td>
-                    <td>Purple</td>
+                    <td>{item.address}</td>
                     <th>
                       <button
-                        onClick={() => handledelate(item._id)}
+                        onClick={() => handleDelate(item._id)}
                         className="btn btn-sm text-white bg-red-600"
                       >
                         <RiDeleteBin2Fill></RiDeleteBin2Fill>
@@ -82,7 +80,10 @@ const ShoppingCart = () => {
             </div>
           ))
         )}
-        {}
+        <div className="text-right">
+          {" "}
+          Total: {wishlist.reduce((total, item) => total + item.price, 0)} $
+        </div>
       </div>
     </div>
   );
