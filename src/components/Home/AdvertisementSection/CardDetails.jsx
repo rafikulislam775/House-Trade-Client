@@ -6,33 +6,47 @@ import Swal from "sweetalert2";
 import useTanst from "../../../api/useTanstack";
 
 const CardDetails = () => {
+  const { wishlist, refetch } = useTanst();
+  console.log(wishlist);
   const data = useLoaderData();
-  const { _id, img, title, address, details, price, status, views } = data;
+  const { _id, img, title, address, details} = data;
   const { user } = useAuth();
-  console.log(user);
-  const { refetch } = useTanst();
-  const handleAddWishlist = () => {
-    if (user && user?.email) {
-      const item = {
-        email: user.email,
-        price,
-        img,
-        title,
-      };
-      axiosPublic.post("/wishlist", item).then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          Swal.fire({
-            title: "Good job!",
-            text: `${title} added successfully`,
-            icon: "success",
-          });
-          //refetch the data for instant data loaded
-          refetch();
-        }
+  console.log(_id);
+  const handleAddWishlist = (_id) => {
+    // if (!wishlist.find((item) => item.id === _id)) {
+    if (!wishlist.some((item) => item.id === _id)) {
+      if (user && user.email) {
+        const item = {
+          email: user.email,
+          price: details.price,
+          img,
+          title,
+          address,
+          id: _id,
+        };
+
+        axiosPublic.post("/wishlist", item).then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              title: "Good job!",
+              text: `${title} added successfully`,
+              icon: "success",
+            });
+            // Refetch the data for instant data loading
+            refetch();
+          }
+        });
+      }
+    } else {
+      Swal.fire({
+        title: "Oops!",
+        text: `${title} is already in your wishlist`,
+        icon: "error",
       });
     }
   };
+
   return (
     <section className="p-4 h-screen lg:p-8 dark:bg-gray-800 dark:text-gray-100">
       <div className="container mx-auto space-y-12">
@@ -66,7 +80,7 @@ const CardDetails = () => {
             <p className="my-6 dark:text-gray-400">{details.description}</p>
             <div>
               <button
-                onClick={handleAddWishlist}
+                onClick={() => handleAddWishlist(_id)}
                 type="button"
                 className=" btn  mr-5"
               >
