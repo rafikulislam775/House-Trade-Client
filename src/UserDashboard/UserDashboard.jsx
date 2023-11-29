@@ -1,12 +1,13 @@
 import { ImHome } from "react-icons/im";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import ShoppingCart from "./ShoppingCart";
 const UserDashboard = () => {
   const { user } = useAuth();
   console.log(user);
   return (
-    <div className="">
-      <div className="h-screen p-3 space-y-2 w-60 dark:bg-gray-900 dark:text-gray-100">
+    <div className="flex bg-gray-900 ">
+      <div className="h-screen p-3 space-y-2  w-64 dark:bg-gray-900 dark:text-gray-100">
         <div className="flex items-center p-2 space-x-4">
           <img
             // src="https://source.unsplash.com/100x100/?portrait"
@@ -43,7 +44,7 @@ const UserDashboard = () => {
                       <div className="flex flex-col space-y-4">
                         <div>
                           <h2 className="text-2xl font-semibold">
-                          {user?.displayName}
+                            {user?.displayName}
                           </h2>
                         </div>
                         <div className="space-y-1">
@@ -210,6 +211,9 @@ const UserDashboard = () => {
             </li>
           </ul>
         </div>
+      </div>
+      <div className=" flex-1 ">
+        <ShoppingCart></ShoppingCart>
       </div>
     </div>
   );
