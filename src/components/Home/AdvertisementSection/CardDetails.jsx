@@ -3,11 +3,14 @@ import { ImLocation } from "react-icons/im";
 import useAuth from "../../../hooks/useAuth";
 import axiosPublic from "../../../api/axiosInstance";
 import Swal from "sweetalert2";
+import useTanst from "../../../api/useTanstack";
+
 const CardDetails = () => {
   const data = useLoaderData();
   const { _id, img, title, address, details, price, status, views } = data;
   const { user } = useAuth();
   console.log(user);
+  const { refetch } = useTanst();
   const handleAddWishlist = () => {
     if (user && user?.email) {
       const item = {
@@ -24,6 +27,8 @@ const CardDetails = () => {
             text: `${title} added successfully`,
             icon: "success",
           });
+          //refetch the data for instant data loaded
+          refetch();
         }
       });
     }

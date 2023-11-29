@@ -3,20 +3,16 @@ import logo from "../../../public/logo.png";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
+import useTanst from "../../api/useTanstack";
+import useWistlist from "../../hooks/useWishlist";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  // const handleLogout = async () => {
-  //   await logOut()
-  //     .then((res) => {
-  //       swal("Sign-out successful!", "", "success");
-  //       console.log("Sign-out successful.", res.user);
-  //     })
-  //     .catch((err) => {
-  //       swal("Oops", `${err} ! please try again`, "error");
-  //       console.error("Sign-out failed.", err);
-  //     });
-  // };
+  const { wishlist } = useTanst();
+  // console.log(wishlist);
+  // const { wishlist } = useWistlist();
+  console.log(wishlist);
+
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
   const [fontColor, setFontColor] = useState("");
@@ -85,7 +81,7 @@ const Navbar = () => {
           }
         >
           <FaCartShopping className=""></FaCartShopping>
-          <span className="badge bg-orange-300 ">0</span>
+          <span className="badge bg-orange-300 ">+{wishlist.length}</span>
         </NavLink>
       </li>
     </>

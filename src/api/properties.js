@@ -1,5 +1,5 @@
-import { Result } from "postcss";
 import axiosPublic from "./axiosInstance";
+
 
 //fetch all data
 export const allProperties = async () => {
