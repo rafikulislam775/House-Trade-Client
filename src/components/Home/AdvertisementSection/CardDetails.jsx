@@ -57,8 +57,18 @@ const CardDetails = () => {
       title,
       review,
     };
-
-    console.log(item);
+    axiosPublic.post("/reviews", item).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        Swal.fire({
+          title: "Thanks!",
+          text: `Successfully added Your Reviews.
+          You can see your reviews on Home pages
+          `,
+          icon: "success",
+        });
+      }
+    });
   };
 
   return (
@@ -137,6 +147,9 @@ const CardDetails = () => {
                     <button
                       className="btn text-white bg-orange-500"
                       type="submit"
+                      onClick={() =>
+                        document.getElementById("my_modal_5").close()
+                      }
                     >
                       Submit Review
                     </button>
