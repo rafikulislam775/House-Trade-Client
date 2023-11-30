@@ -8,6 +8,7 @@ import { allProperties, property } from "../api/properties";
 import UserDashboard from "../UserDashboard/UserDashboard";
 import Wishlist from "../UserDashboard/Wishlist";
 import Error from "../components/Home/Error";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "properties/:id",
-        element: <CardDetails></CardDetails>,
+        element: (
+          <PrivateRoute>
+            <CardDetails></CardDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => property(params.id),
       },
     ],
