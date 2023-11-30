@@ -7,11 +7,13 @@ import CardDetails from "../components/Home/AdvertisementSection/CardDetails";
 import { allProperties, property } from "../api/properties";
 import UserDashboard from "../UserDashboard/UserDashboard";
 import Wishlist from "../UserDashboard/Wishlist";
+import Error from "../components/Home/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout></HomeLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         index: true,
