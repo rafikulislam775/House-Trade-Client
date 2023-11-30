@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import { ImLocation } from "react-icons/im";
 import useAuth from "../../../hooks/useAuth";
 import axiosPublic from "../../../api/axiosInstance";
@@ -9,7 +9,7 @@ const CardDetails = () => {
   const { wishlist, refetch } = useTanst();
   console.log(wishlist);
   const data = useLoaderData();
-  const { _id, img, title, address, details} = data;
+  const { _id, img, title, address, details } = data;
   const { user } = useAuth();
   console.log(_id);
   const handleAddWishlist = (_id) => {
@@ -45,6 +45,20 @@ const CardDetails = () => {
         icon: "error",
       });
     }
+  };
+  //add reviews
+  const handleReview = (e) => {
+    e.preventDefault();
+    const review = e.target.review.value;
+    const item = {
+      email: user.email,
+      name: user?.displayName,
+      img: user?.photoURL,
+      title,
+      review,
+    };
+
+    console.log(item);
   };
 
   return (
@@ -86,9 +100,49 @@ const CardDetails = () => {
               >
                 Add To Wishlist
               </button>
-              <button type="button" className=" btn ">
+              {/* Open the modal using document.getElementById('ID').showModal() method */}
+              <button
+                className="btn bg-orange-500 text-white hover:bg-blue-600"
+                onClick={() =>
+                  document.getElementById("my_modal_5").showModal()
+                }
+              >
                 Add a Review
               </button>
+
+              <dialog
+                id="my_modal_5"
+                className="modal modal-bottom sm:modal-middle"
+              >
+                <form
+                  onSubmit={handleReview}
+                  className="modal-box p-6 bg-gray-200 text-black rounded-md shadow-lg"
+                >
+                  <h3 className="font-bold text-lg mb-4">Write a Review</h3>
+
+                  <textarea
+                    className="w-full h-32 p-2 border rounded-md"
+                    placeholder="Your review..."
+                    name="review"
+                  ></textarea>
+                  <div className="mt-4 flex justify-end">
+                    <button
+                      className="btn mr-2 bg-red-400"
+                      onClick={() =>
+                        document.getElementById("my_modal_5").close()
+                      }
+                    >
+                      Close
+                    </button>
+                    <button
+                      className="btn text-white bg-orange-500"
+                      type="submit"
+                    >
+                      Submit Review
+                    </button>
+                  </div>
+                </form>
+              </dialog>
             </div>
           </div>
         </div>

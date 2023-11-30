@@ -9,6 +9,7 @@ import UserDashboard from "../UserDashboard/UserDashboard";
 import Wishlist from "../UserDashboard/Wishlist";
 import Error from "../components/Home/Error";
 import PrivateRoute from "./PrivateRoute";
+import Review from "../UserDashboard/Review";
 
 const router = createBrowserRouter([
   {
