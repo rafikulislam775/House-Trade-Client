@@ -38,12 +38,22 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/ allProperties"
+          to="/allProperties"
           className={({ isActive }) =>
             isActive ? "bg-orange-500 text-white" : ""
           }
         >
           All Properties
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contactUs"
+          className={({ isActive }) =>
+            isActive ? "bg-orange-500 text-white" : ""
+          }
+        >
+          Contact us
         </NavLink>
       </li>
       <li>

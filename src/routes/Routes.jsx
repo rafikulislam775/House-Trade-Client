@@ -9,7 +9,7 @@ import UserDashboard from "../UserDashboard/UserDashboard";
 import Wishlist from "../UserDashboard/Wishlist";
 import Error from "../components/Home/Error";
 import PrivateRoute from "./PrivateRoute";
-import Review from "../UserDashboard/Review";
+import ContactUs from "../components/Home/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +22,7 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => allProperties(),
       },
+
       {
         path: "login",
         element: <Login></Login>,
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "signUp",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "contactUs",
+        element: <ContactUs></ContactUs>,
       },
       {
         path: "properties/:id",
