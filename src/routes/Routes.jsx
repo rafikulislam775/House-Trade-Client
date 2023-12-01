@@ -57,6 +57,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  //admin routes
   {
     path: "adminDashboard",
     element: <AdminDashboard></AdminDashboard>,

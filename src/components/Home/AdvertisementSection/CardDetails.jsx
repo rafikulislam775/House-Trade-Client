@@ -14,6 +14,7 @@ const CardDetails = () => {
   console.log(_id);
   const handleAddWishlist = (_id) => {
     // if (!wishlist.find((item) => item.id === _id)) {
+
     if (!wishlist.some((item) => item.id === _id)) {
       if (user && user.email) {
         const item = {
@@ -35,6 +36,8 @@ const CardDetails = () => {
             });
             // Refetch the data for instant data loading
             refetch();
+
+            // document.getElementById("my_modal_5").close();
           }
         });
       }
@@ -110,7 +113,7 @@ const CardDetails = () => {
               >
                 Add To Wishlist
               </button>
-              {/* Open the modal using document.getElementById('ID').showModal() method */}
+
               <button
                 className="btn bg-orange-500 text-white hover:bg-blue-600"
                 onClick={() =>
@@ -125,6 +128,7 @@ const CardDetails = () => {
                 className="modal modal-bottom sm:modal-middle"
               >
                 <form
+                  id="reviewForm"
                   onSubmit={handleReview}
                   className="modal-box p-6 bg-gray-200 text-black rounded-md shadow-lg"
                 >
@@ -138,18 +142,15 @@ const CardDetails = () => {
                   <div className="mt-4 flex justify-end">
                     <button
                       className="btn mr-2 bg-red-400"
-                      onClick={() =>
-                        document.getElementById("my_modal_5").close()
-                      }
+                      onClick={() => {
+                        document.getElementById("my_modal_5").close();
+                      }}
                     >
                       Close
                     </button>
                     <button
                       className="btn text-white bg-orange-500"
                       type="submit"
-                      onClick={() =>
-                        document.getElementById("my_modal_5").close()
-                      }
                     >
                       Submit Review
                     </button>

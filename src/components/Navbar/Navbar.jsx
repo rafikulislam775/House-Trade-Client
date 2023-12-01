@@ -9,6 +9,7 @@ import useTanst from "../../api/useTanstack";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { wishlist } = useTanst();
+  const admin = true;
 
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
@@ -80,6 +81,18 @@ const Navbar = () => {
           Dashboard
         </NavLink>
       </li>
+      {admin && (
+        <li>
+          <NavLink
+            to="/adminDashboard"
+            className={({ isActive }) =>
+              isActive ? "bg-orange-500  text-white" : ""
+            }
+          >
+            Admin
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           to="/userDashboard/wishlist"
