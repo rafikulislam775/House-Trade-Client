@@ -4,8 +4,10 @@ import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
 import { imageUpload } from "../../api/utils";
 import { ImSpinner9 } from "react-icons/im";
+import axiosPublic from "../../api/axiosInstance";
 
 const SignUp = () => {
+  const axios = axiosPublic;
   const { createUser, updateUserProfile, signInWithGoogle, loading } =
     useAuth();
   const navigate = useNavigate();
@@ -25,10 +27,20 @@ const SignUp = () => {
       //3. Save username & profile photo
       await updateUserProfile(name, imageData?.data?.display_url);
       //now to navigate the user
-
-      navigate(location?.state ? location?.state : "/");
-      swal("Thanks!", "you are successfully created accounts !", "success");
-      console.log(result);
+      //create user entry in the database
+      const userInfo = {
+        name,
+        email,
+      };
+      console.log(userInfo);
+      axios.post("/users", userInfo).then((res) => {
+        console.log(res);
+        if (res.data.insertedId) {
+          navigate(location?.state ? location?.state : "/");
+          swal("Thanks!", "you are successfully created accounts !", "success");
+          console.log(result);
+        }
+      });
     } catch (err) {
       console.log(err);
       swal("Oops!", "Something went wrong!", "error");
@@ -37,10 +49,17 @@ const SignUp = () => {
   //handle google login
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then(() => {
+      .then((res) => {
         //now to navigate the user
-        navigate(location?.state ? location?.state : "/");
-        swal("Good job!", "now you are login successfully!", "success");
+        const userInfo = {
+          name: res.user?.displayName,
+          email: res.user?.email,
+        };
+        console.log(userInfo);
+        axios.post("/users", userInfo).then(() => {
+          navigate(location?.state ? location?.state : "/");
+          swal("Good job!", "now you are login successfully!", "success");
+        });
       })
       .catch(() =>
         swal("Oops", "Something went wrong ! please try again", "error")
