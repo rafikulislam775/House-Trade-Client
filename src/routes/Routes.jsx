@@ -10,6 +10,7 @@ import Wishlist from "../UserDashboard/Wishlist";
 import Error from "../components/Home/Error";
 import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../components/Home/ContactUs/ContactUs";
+import AdminDashboard from "../AdminDashboard/Admindashboard";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
         element: <Wishlist></Wishlist>,
       },
     ],
+  },
+  {
+    path: "adminDashboard",
+    element: <AdminDashboard></AdminDashboard>,
   },
 ]);
 

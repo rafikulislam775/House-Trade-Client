@@ -2,12 +2,10 @@ const Blog = () => {
   return (
     <div>
       <section className="dark:bg-gray-800 dark:text-gray-100">
-      <div className="space-y-2 text-center dark:text-gray-50 dark:bg-gray-800 ">
-            <h2 className="text-3xl font-bold">Our random Blog</h2>
-            <p className="font-serif text-sm ">
-             random blog 
-            </p>
-          </div>
+        <div className="space-y-2 text-center dark:text-gray-50 dark:bg-gray-800 ">
+          <h2 className="text-3xl font-bold">Our Random Blog</h2>
+          <p className="font-serif text-sm ">random blog</p>
+        </div>
         <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
           <a
             rel="noopener noreferrer"
