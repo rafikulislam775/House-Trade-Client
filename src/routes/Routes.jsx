@@ -11,6 +11,7 @@ import Error from "../components/Home/Error";
 import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../components/Home/ContactUs/ContactUs";
 import AdminDashboard from "../AdminDashboard/Admindashboard";
+import AllUsers from "../AdminDashboard/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
   {
     path: "adminDashboard",
     element: <AdminDashboard></AdminDashboard>,
+    children: [
+      {
+        path: "users",
+        element: <AllUsers></AllUsers>,
+      },
+    ],
   },
 ]);
 
