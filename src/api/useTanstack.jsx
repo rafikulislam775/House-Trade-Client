@@ -15,7 +15,7 @@ const useTanst = () => {
     queryFn: async () => {
       const res = await axiosUse.get(`/wishlist?email=${user?.email}`);
       // const response = await axiosUse.get(`/wishlist`);
-      console.log(res);
+      // console.log(res);
       return res.data; // Return the data from the axios request
     },
   });

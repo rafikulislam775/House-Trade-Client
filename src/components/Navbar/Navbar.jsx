@@ -9,7 +9,10 @@ import useTanst from "../../api/useTanstack";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { wishlist } = useTanst();
-  const admin = true;
+  //AdminMama123!
+
+  const x = user?.email =="adminmama@gmail.com";
+  // console.log(x,user?.email)
 
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
@@ -71,17 +74,19 @@ const Navbar = () => {
   );
   const privateMenu = (
     <>
-      <li>
-        <NavLink
-          to="/userDashboard"
-          className={({ isActive }) =>
-            isActive ? "bg-orange-500 text-white" : ""
-          }
-        >
-          Dashboard
-        </NavLink>
-      </li>
-      {admin && (
+      {x === false && (
+        <li>
+          <NavLink
+            to="/userDashboard"
+            className={({ isActive }) =>
+              isActive ? "bg-orange-500 text-white" : ""
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
+      {x && (
         <li>
           <NavLink
             to="/adminDashboard"

@@ -31,7 +31,6 @@ const ShoppingCart = () => {
       }
     });
   };
-  console.log(wishlist);
   return (
     <div>
       <div className="flex h-screen  border-l flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">

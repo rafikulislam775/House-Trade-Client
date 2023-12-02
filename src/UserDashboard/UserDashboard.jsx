@@ -6,7 +6,6 @@ import { TiShoppingCart } from "react-icons/ti";
 const UserDashboard = () => {
   const { user } = useAuth();
 
-  console.log(user);
 
   return (
     <div className="flex bg-gray-900 ">

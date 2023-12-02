@@ -83,12 +83,18 @@ const AllUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button
-                    onClick={() => handleDelate(user)}
-                    className="btn btn-sm text-white bg-red-600"
-                  >
-                    <RiDeleteBin2Fill></RiDeleteBin2Fill>
-                  </button>
+                  {user.role === "admin" ? (
+                    <button className="btn btn-sm  ">
+                      <RiDeleteBin2Fill></RiDeleteBin2Fill>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleDelate(user)}
+                      className="btn btn-sm text-white bg-red-600"
+                    >
+                      <RiDeleteBin2Fill></RiDeleteBin2Fill>
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
