@@ -16,6 +16,7 @@ import Adviertisement from "../components/Home/AdvertisementSection/Adviertiseme
 import PropertyBought from "../UserDashboard/PropertyBought";
 import DashboardLayout from "../UserDashboard/DashboardLayout";
 import UserProfile from "../UserDashboard/UserProfile";
+import MyReviews from "../UserDashboard/MyReviews";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "propertyBought",
         element: <PropertyBought></PropertyBought>,
+      },
+      {
+        path: "myReviews",
+        element: <MyReviews></MyReviews>,
       },
     ],
   },
