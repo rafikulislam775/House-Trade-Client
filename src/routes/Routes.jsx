@@ -12,6 +12,10 @@ import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../components/Home/ContactUs/ContactUs";
 import AdminDashboard from "../AdminDashboard/Admindashboard";
 import AllUsers from "../AdminDashboard/AllUsers";
+import Adviertisement from "../components/Home/AdvertisementSection/Adviertisement";
+import PropertyBought from "../UserDashboard/PropertyBought";
+import DashboardLayout from "../UserDashboard/DashboardLayout";
+import UserProfile from "../UserDashboard/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
+      },
+      {
+        path: "allProperties",
+        element: <Adviertisement></Adviertisement>,
+        loader: () => allProperties(),
       },
       {
         path: "signUp",
@@ -50,11 +59,20 @@ const router = createBrowserRouter([
   },
   {
     path: "userDashboard",
-    element: <UserDashboard></UserDashboard>,
+    // element: <UserDashboard></UserDashboard>,
+    element: <DashboardLayout></DashboardLayout>,
     children: [
       {
         path: "wishlist",
         element: <Wishlist></Wishlist>,
+      },
+      {
+        path: "myProfile",
+        element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "propertyBought",
+        element: <PropertyBought></PropertyBought>,
       },
     ],
   },

@@ -1,7 +1,7 @@
 const Blog = () => {
   return (
     <div>
-      <section className="dark:bg-gray-800 dark:text-gray-100">
+      <section className="dark:bg-gray-800 pt-16 dark:text-gray-100">
         <div className="space-y-2 text-center dark:text-gray-50 dark:bg-gray-800 ">
           <h2 className="text-3xl font-bold">Our Random Blog</h2>
           <p className="font-serif text-sm ">random blog</p>

@@ -77,7 +77,7 @@ const Navbar = () => {
       {x === false && (
         <li>
           <NavLink
-            to="/userDashboard"
+            to="/userDashboard/myProfile"
             className={({ isActive }) =>
               isActive ? "bg-orange-500 text-white" : ""
             }

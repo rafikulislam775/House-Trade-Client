@@ -9,9 +9,9 @@ const CardDetails = () => {
   const { wishlist, refetch } = useTanst();
   console.log(wishlist);
   const data = useLoaderData();
-  const { _id, img, title, address, details } = data;
+  const { _id, img, title, address, details, status } = data;
   const { user } = useAuth();
-  console.log(_id);
+  // console.log(data);
   const handleAddWishlist = (_id) => {
     // if (!wishlist.find((item) => item.id === _id)) {
 
@@ -24,6 +24,7 @@ const CardDetails = () => {
           title,
           address,
           id: _id,
+          status,
         };
 
         axiosPublic.post("/wishlist", item).then((res) => {
