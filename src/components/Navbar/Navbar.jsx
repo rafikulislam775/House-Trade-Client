@@ -89,7 +89,7 @@ const Navbar = () => {
       {x && (
         <li>
           <NavLink
-            to="/adminDashboard"
+            to="/adminDashboard/adminProfile"
             className={({ isActive }) =>
               isActive ? "bg-orange-500  text-white" : ""
             }

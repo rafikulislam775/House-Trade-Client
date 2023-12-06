@@ -8,12 +8,20 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 
 const Wishlist = () => {
   const { wishlist, isLoading, refetch } = useTanst();
+  if (isLoading) {
+    return (
+      <div>
+        {" "}
+        <ImSpinner9 className="animate-spin text-8xl m-auto" />
+      </div>
+    );
+  }
   const axios = axiosPublic;
   const handleDelate = (id) => {
     console.log(wishlist);
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "You want to your wishlist!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",

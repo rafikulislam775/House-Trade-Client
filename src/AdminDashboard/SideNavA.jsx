@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const SideNav = () => {
+const SideNavA = () => {
   return (
     <div>
       <div className="">
@@ -9,7 +9,7 @@ const SideNav = () => {
 
           <li className="hover:bg-orange-600 rounded-lg">
             <NavLink
-              to="/userDashboard/myProfile"
+              to="/adminDashboard/adminProfile"
               className={({ isActive }) =>
                 isActive ? "bg-orange-500  text-white" : ""
               }
@@ -19,7 +19,7 @@ const SideNav = () => {
           </li>
           <li className="hover:bg-orange-600 rounded-lg">
             <NavLink
-              to="/userDashboard/wishlist"
+              to="/adminDashboard/wishlist"
               className={({ isActive }) =>
                 isActive ? "bg-orange-500  text-white" : ""
               }
@@ -40,7 +40,7 @@ const SideNav = () => {
 
           <li className="hover:bg-orange-600 rounded-lg">
             <NavLink
-              to="/userDashboard/propertyBought"
+              to="/adminDashboard/propertyBought"
               className={({ isActive }) =>
                 isActive ? "bg-orange-500  text-white" : ""
               }
@@ -50,7 +50,7 @@ const SideNav = () => {
           </li>
           <li className="hover:bg-orange-600 rounded-lg">
             <NavLink
-              to="/userDashboard/myReviews"
+              to="/adminDashboard/myReviews"
               className={({ isActive }) =>
                 isActive ? "bg-orange-500  text-white" : ""
               }
@@ -64,4 +64,4 @@ const SideNav = () => {
   );
 };
 
-export default SideNav;
+export default SideNavA;

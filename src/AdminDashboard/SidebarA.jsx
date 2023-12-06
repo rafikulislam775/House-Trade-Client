@@ -1,7 +1,7 @@
 import useAuth from "../hooks/useAuth";
-import SideNav from "./SideNav";
+import SideNavA from "./SideNavA";
 
-const Sidebar = () => {
+const SidebarA = () => {
   const { user } = useAuth();
   return (
     <div className="flex bg-gray-900 ">
@@ -93,10 +93,10 @@ const Sidebar = () => {
             </span>
           </div>
         </div>
-        <SideNav></SideNav>
+        <SideNavA></SideNavA>
       </div>
     </div>
   );
 };
 
-export default Sidebar;
+export default SidebarA;

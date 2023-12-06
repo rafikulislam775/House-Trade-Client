@@ -17,6 +17,8 @@ import PropertyBought from "../UserDashboard/PropertyBought";
 import DashboardLayout from "../UserDashboard/DashboardLayout";
 import UserProfile from "../UserDashboard/UserProfile";
 import MyReviews from "../UserDashboard/MyReviews";
+import AdminDashLayout from "../AdminDashboard/AdminDashLayout";
+import AdminProfile from "../AdminDashboard/AdminProfile";
 
 const router = createBrowserRouter([
   {
@@ -84,11 +86,11 @@ const router = createBrowserRouter([
   //admin routes
   {
     path: "adminDashboard",
-    element: <AdminDashboard></AdminDashboard>,
+    element: <AdminDashLayout></AdminDashLayout>,
     children: [
       {
-        path: "users",
-        element: <AllUsers></AllUsers>,
+        path: "adminProfile",
+        element: <AdminProfile></AdminProfile>,
       },
     ],
   },
