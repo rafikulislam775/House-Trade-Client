@@ -1,10 +1,10 @@
-import useReview from "../api/useReview";
-import useAuth from "../hooks/useAuth";
-import Swal from "sweetalert2";
-import axiosPublic from "../api/axiosInstance";
 import { TbNotebookOff } from "react-icons/tb";
 import { ImSpinner9 } from "react-icons/im";
-const MyReviews = () => {
+import useAuth from "../hooks/useAuth";
+import axiosPublic from "../api/axiosInstance";
+import useReview from "../api/useReview";
+import Swal from "sweetalert2";
+const ManageReviews = () => {
   const { user } = useAuth();
   const axios = axiosPublic;
   const { reviews, refetch, isLoading } = useReview();
@@ -16,7 +16,7 @@ const MyReviews = () => {
       </div>
     );
   }
-  const filteredReviews = reviews?.filter((item) => item.email === user.email);
+  const filteredReviews = reviews?.filter((item) => item.email != user.email);
   //   console.log(filteredReviews);
   const handleDelate = (id) => {
     Swal.fire({
@@ -45,11 +45,11 @@ const MyReviews = () => {
   return (
     <div>
       <h2 className="text-4xl text-center p-5 m-5 border-b-2 border-black">
-        My reviews: {filteredReviews.length}
+        All Users reviews
       </h2>
       {filteredReviews.length !== 0 ? (
         <div className="grid grid-cols-2 gap-2">
-          {filteredReviews?.map((review) => (
+          {reviews?.map((review) => (
             <div
               key={review._id}
               className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md dark:divide-gray-700 dark:bg-gray-900 dark:text-gray-100"
@@ -122,4 +122,4 @@ const MyReviews = () => {
   );
 };
 
-export default MyReviews;
+export default ManageReviews;

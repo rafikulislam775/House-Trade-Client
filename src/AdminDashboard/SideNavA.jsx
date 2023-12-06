@@ -14,17 +14,17 @@ const SideNavA = () => {
                 isActive ? "bg-orange-500  text-white" : ""
               }
             >
-              My Profile
+              Admin Profile
             </NavLink>
           </li>
           <li className="hover:bg-orange-600 rounded-lg">
             <NavLink
-              to="/adminDashboard/wishlist"
+              to="/adminDashboard/manageProperties"
               className={({ isActive }) =>
                 isActive ? "bg-orange-500  text-white" : ""
               }
             >
-              wishlist
+              Manage Properties
             </NavLink>
           </li>
           <li className="hover:bg-orange-600 rounded-lg">
@@ -40,22 +40,22 @@ const SideNavA = () => {
 
           <li className="hover:bg-orange-600 rounded-lg">
             <NavLink
-              to="/adminDashboard/propertyBought"
+              to="/adminDashboard/manageUsers"
               className={({ isActive }) =>
                 isActive ? "bg-orange-500  text-white" : ""
               }
             >
-              Property bought
+              Manage Users
             </NavLink>
           </li>
           <li className="hover:bg-orange-600 rounded-lg">
             <NavLink
-              to="/adminDashboard/myReviews"
+              to="/adminDashboard/manageReviews"
               className={({ isActive }) =>
                 isActive ? "bg-orange-500  text-white" : ""
               }
             >
-              My Reviews
+              Manage reviews
             </NavLink>
           </li>
         </ul>

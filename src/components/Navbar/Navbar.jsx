@@ -4,15 +4,31 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import useTanst from "../../api/useTanstack";
-
+import axiosPublic from "../../api/axiosInstance";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { wishlist } = useTanst();
   //AdminMama123!
+  //get admin
+  const axios = axiosPublic;
+  const { data: admin = [] } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await axios.get("/users");
+      return res.data;
+    },
+  });
 
-  const x = user?.email =="adminmama@gmail.com";
-  // console.log(x,user?.email)
+  const isAdmin = admin?.find(
+    (user) => user.email === user.email && user.role === "admin"
+  );
+
+  // console.log(isAdmin);
+
+  // const x = user?.email == "adminmama@gmail.com";
+  // console.log(x, user?.email);
 
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
@@ -74,7 +90,7 @@ const Navbar = () => {
   );
   const privateMenu = (
     <>
-      {x === false && (
+      {isAdmin === false && (
         <li>
           <NavLink
             to="/userDashboard/myProfile"
@@ -86,7 +102,7 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
-      {x && (
+      {isAdmin && (
         <li>
           <NavLink
             to="/adminDashboard/adminProfile"
@@ -98,17 +114,19 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
-      <li>
-        <NavLink
-          to="/userDashboard/wishlist"
-          className={({ isActive }) =>
-            isActive ? "bg-orange-500  text-white" : ""
-          }
-        >
-          <FaCartShopping className=""></FaCartShopping>
-          <span className="badge bg-orange-300 ">+{wishlist.length}</span>
-        </NavLink>
-      </li>
+      {isAdmin === false && (
+        <li>
+          <NavLink
+            to="/userDashboard/wishlist"
+            className={({ isActive }) =>
+              isActive ? "bg-orange-500  text-white" : ""
+            }
+          >
+            <FaCartShopping className=""></FaCartShopping>
+            <span className="badge bg-orange-300 ">+{wishlist.length}</span>
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (

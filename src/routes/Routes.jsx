@@ -19,6 +19,9 @@ import UserProfile from "../UserDashboard/UserProfile";
 import MyReviews from "../UserDashboard/MyReviews";
 import AdminDashLayout from "../AdminDashboard/AdminDashLayout";
 import AdminProfile from "../AdminDashboard/AdminProfile";
+import ManageUsers from "../AdminDashboard/ManageUsers";
+import ManageReviews from "../AdminDashboard/ManageReviews";
+import ManageProperties from "../AdminDashboard/ManageProperties";
 
 const router = createBrowserRouter([
   {
@@ -91,6 +94,19 @@ const router = createBrowserRouter([
       {
         path: "adminProfile",
         element: <AdminProfile></AdminProfile>,
+      },
+      {
+        path: "manageUsers",
+        element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "manageReviews",
+        element: <ManageReviews></ManageReviews>,
+      },
+      {
+        path: "manageProperties",
+        element: <ManageProperties></ManageProperties>,
+        loader: () => allProperties(),
       },
     ],
   },
