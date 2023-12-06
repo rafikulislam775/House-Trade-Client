@@ -78,10 +78,7 @@ const ManageUsers = () => {
                     "admin"
                   ) : (
                     <button onClick={() => handleMakeAdmin(user)}>
-                      <span className="flex gap-2 justify-center items-center">
-                        {" "}
-                        <RiAdminFill></RiAdminFill>makeAdmin
-                      </span>
+                      <RiAdminFill></RiAdminFill>
                     </button>
                   )}
                 </td>

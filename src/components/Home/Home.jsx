@@ -4,6 +4,7 @@ import Adviertisement from "./AdvertisementSection/Adviertisement";
 import Review from "../Home/Review";
 import ContactUs from "./ContactUs/ContactUs";
 import Blog from "./Blog";
+import TrustedCompany from "./TrustedCompany";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Review></Review>
       <ContactUs></ContactUs>
       <Blog></Blog>
+      <TrustedCompany></TrustedCompany>
     </div>
   );
 };

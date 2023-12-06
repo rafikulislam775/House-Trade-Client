@@ -4,31 +4,29 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import useTanst from "../../api/useTanstack";
-import axiosPublic from "../../api/axiosInstance";
-import { useQuery } from "@tanstack/react-query";
+// import axiosPublic from "../../api/axiosInstance";
+// import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { wishlist } = useTanst();
   //AdminMama123!
   //get admin
-  const axios = axiosPublic;
-  const { data: admin = [] } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axios.get("/users");
-      return res.data;
-    },
-  });
+  // const axios = axiosPublic;
+  // const { data: admin = [] } = useQuery({
+  //   queryKey: ["users"],
+  //   queryFn: async () => {
+  //     const res = await axios.get("/users");
+  //     return res.data;
+  //   },
+  // });
 
-  const isAdmin = admin?.find(
-    (user) => user.email === user.email && user.role === "admin"
-  );
+  // const isAdmin = admin?.find(
+  //   (item) => item.email === user.email && user.role === "admin"
+  // );
 
-  // console.log(isAdmin);
-
-  // const x = user?.email == "adminmama@gmail.com";
-  // console.log(x, user?.email);
+  const x = user?.email == "adminmama@gmail.com";
+  console.log(x, user?.email);
 
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
@@ -90,7 +88,7 @@ const Navbar = () => {
   );
   const privateMenu = (
     <>
-      {isAdmin === false && (
+      {x === false  && (
         <li>
           <NavLink
             to="/userDashboard/myProfile"
@@ -102,7 +100,7 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
-      {isAdmin && (
+      {x && (
         <li>
           <NavLink
             to="/adminDashboard/adminProfile"
@@ -114,7 +112,7 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
-      {isAdmin === false && (
+      {x === false && (
         <li>
           <NavLink
             to="/userDashboard/wishlist"
