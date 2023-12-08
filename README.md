@@ -8,7 +8,7 @@ Explore House Trade live at [house-trade.web.app](https://house-trade.web.app/).
 ## Client Code
 Find the client-side code on GitHub: [client-code](https://github.com/rafikulislam775/House-Trade-Client).
 ## Server Code
-Check out the server-side code on GitHub: [b8a12-server-side-rafikulislam775](https://github.com/programming-hero-web-course1/b8a12-server-side-rafikulislam775).
+Check out the server-side code on GitHub: [Server-code](https://github.com/rafikulislam775/House-Trade-server).
 
 ## Dependencies Used
 We have utilized the following dependencies to enhance the functionality and aesthetics of House Trade:
