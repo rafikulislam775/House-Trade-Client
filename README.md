@@ -1,6 +1,6 @@
 # House Trade
 
-Welcome to the House Trade project! This application allows users to explore house trading opportunities effortlessly. Below are the essential details and links related to this project.
+🏡 Welcome to the House Trade platform! Dive into seamless property transactions, where users can effortlessly buy and sell homes. This application lets you register an account, log in, create wishlists, and facilitate secure payments. Explore a world of real estate possibilities with just a click!
 
 ## Live Link
 Explore House Trade live at [house-trade.web.app](https://house-trade.web.app/).
